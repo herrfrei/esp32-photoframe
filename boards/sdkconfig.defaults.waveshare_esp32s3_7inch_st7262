@@ -1,0 +1,11 @@
+# WaveShare ESP32-S3 7-inch ST7262 board
+CONFIG_BOARD_DRIVER_WAVESHARE_ESP32S3_7INCH_ST7262=y
+
+# Flash Configuration (16MB, 80MHz)
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESPTOOLPY_FLASHSIZE="16MB"
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+
+# Use the internal flash for persistent config/storage unless a board-specific
+# SD-card variant is later added.
+CONFIG_USE_INTERNAL_FLASH_STORAGE=y
