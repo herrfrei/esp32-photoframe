@@ -14,6 +14,7 @@ set(SOURCES
     "image_processor.c"
     "jpeg_header.c"
     "main.c"
+    "lvgl_port.c"
     "mdns_service.c"
     "network_backoff.c"
     "ota_manager.c"
@@ -36,6 +37,7 @@ set(INCLUDE_DIRS ".")
 set(PRIV_REQUIRES
     app_update
     board_hal
+    display_st7262
     espressif__qrcode
     epaper
     epaper_src
@@ -54,7 +56,9 @@ set(PRIV_REQUIRES
     espressif__libpng
     espressif__zlib
     espressif__mdns
+    esp_lcd
     fatfs
+    lvgl
     mbedtls
     memfs
     nvs_flash
@@ -66,8 +70,8 @@ idf_component_register(
     SRCS ${SOURCES}
     INCLUDE_DIRS "."
     REQUIRES ""
-    PRIV_REQUIRES ${PRIV_REQUIRES} 
-    EMBED_FILES "webapp/index.html.gz" "webapp/icon.svg.gz" "webapp/assets/index.css.gz" "webapp/assets/index.js.gz" "webapp/assets/index2.js.gz" "webapp/assets/exif-reader.js.gz" "webapp/assets/browser.js.gz" "webapp/assets/__vite-browser-external.js.gz" "resources/measurement_sample.jpg"
+    PRIV_REQUIRES ${PRIV_REQUIRES}
+    EMBED_FILES "webapp/index.html.gz" "webapp/icon.svg.gz" "webapp/assets/index.css.gz" "webapp/assets/index.js.gz" "webapp/assets/index2.js.gz" "webapp/assets/exif-reader.js.gz" "webapp/assets/exif-reader.min.js.gz" "webapp/assets/icons.css.gz" "webapp/assets/wasm_exec.js.gz"
 )
 
 # Embed splash screen EPDGZ files (generated at build time by generate_splash.py)
