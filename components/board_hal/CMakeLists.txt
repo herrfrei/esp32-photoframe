@@ -1,5 +1,3 @@
-# Shared helpers: battery-voltage ADC for the ADC-based boards, SD power
-# cycling for the boards with a switched card rail.
 set(SRCS "src/battery_adc.c" "src/sd_power.c")
 
 set(PRIV_REQS
@@ -20,6 +18,8 @@ set(PRIV_REQS
 
 if(CONFIG_BOARD_DRIVER_WAVESHARE_PHOTOPAINTER_73)
     list(APPEND SRCS "src/driver_waveshare_photopainter_73.c")
+elseif(CONFIG_BOARD_DRIVER_WAVESHARE_ESP32S3_7INCH_ST7262)
+    list(APPEND SRCS "src/driver_waveshare_esp32s3_7inch_st7262.c")
 elseif(CONFIG_BOARD_DRIVER_SEEEDSTUDIO_XIAO_EE02)
     list(APPEND SRCS "src/driver_seeedstudio_xiao_ee02.c")
 elseif(CONFIG_BOARD_DRIVER_SEEEDSTUDIO_XIAO_EE03)
@@ -39,11 +39,6 @@ endif()
 idf_component_register(
     SRCS "${SRCS}"
     INCLUDE_DIRS "include"
-    # esp_driver_usb_serial_jtag is registered on every target (with no sources
-    # on chips without the peripheral, e.g. the ESP32), so require it
-    # unconditionally. Kconfig values such as CONFIG_SOC_USB_SERIAL_JTAG_SUPPORTED
-    # are not visible during IDF's early requirement expansion, so a conditional
-    # here silently drops it and breaks the S3 boards that detect USB through it.
     REQUIRES esp_timer driver esp_adc esp_driver_gpio esp_driver_usb_serial_jtag epaper sensor
     PRIV_REQUIRES ${PRIV_REQS}
 )

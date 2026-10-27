@@ -8,6 +8,15 @@
     "url": "https://www.waveshare.com/wiki/ESP32-S3-PhotoPainter"
   },
   {
+    "id": "waveshare_esp32s3_7inch_st7262",
+    "label": "Waveshare ESP32-S3 7-inch ST7262",
+    "display": "7.0\" RGB TFT",
+    "resolution": [800, 480],
+    "display_type": "rgb565",
+    "storage": "Internal flash / SD",
+    "url": "https://www.waveshare.com/esp32-s3-touch-lcd-7.htm"
+  },
+  {
     "id": "seeedstudio_xiao_ee02",
     "label": "Seeed Studio XIAO EE02",
     "display": "13.3\" 6-color",
